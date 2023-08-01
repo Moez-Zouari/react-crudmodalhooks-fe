@@ -13,5 +13,5 @@ export const addArticle = async (article) => {
     return await Api.post(ARTICLE_API, article);
 }
 export const editArticle = (article) => {
-    return Api.put(ARTICLE_API + '/' + article.id, article);
+    return Api.put(ARTICLE_API + '/' + article._id, article);
 }
