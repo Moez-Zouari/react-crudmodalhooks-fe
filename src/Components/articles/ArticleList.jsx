@@ -1,9 +1,12 @@
 import React, { useMemo } from 'react';
 import { MaterialReactTable } from 'material-react-table';
 import { Box } from '@mui/material';
+import Button from 'react-bootstrap/Button';
 
-
-const ArticleList = ({ products }) => {
+const ArticleList = ({ products, deleteProduct }) => {
+    const confirmMessage = (id, ref) => {
+        deleteProduct(id, ref)
+    }
     const columns = useMemo(
         () => [
             {
@@ -53,8 +56,39 @@ const ArticleList = ({ products }) => {
                 header: 'Quantité',
                 size: 80,
             },
+            {
+                accessorKey: '_id',
+                header: 'actions',
+                size: 100,
+                Cell: ({ cell, row }) => (
+                    <div >
+                        <Button
+                            onClick={() => {
+                                console.log("modification ...")
+                            }}
+                            variant="warning"
+                            size="md"
+                            className="text-warning btn-link edit"
+                        >
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </Button>
+                        <Button
+                            onClick={(e) => {
+                                confirmMessage(cell.row.original._id, cell.row.original.reference, e);
+                            }}
+                            variant="danger"
+                            size="md"
+                            className="text-danger btn-link delete"
+                        >
+                            <i className="fa fa-trash" />
+                        </Button>
+                    </div>
+                ),
+            },
+
+
         ],
-        [],
+        [products],
     );
     return (
 
