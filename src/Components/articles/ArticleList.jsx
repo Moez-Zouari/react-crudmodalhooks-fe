@@ -91,10 +91,13 @@ const ArticleList = ({ products, deleteProduct }) => {
         [products],
     );
     return (
-
-        < div >
-            <MaterialReactTable columns={columns} data={products} />;
-        </ div>
+        <>
+            {products &&
+                < div >
+                    <MaterialReactTable columns={columns} data={products} />;
+                </ div>
+            }
+        </>
     )
 }
 
