@@ -17,6 +17,19 @@ const ArticleApp = () => {
       .catch(err => console.log(err))
   }
 
+  const addproduct = (newproduit) => {
+    setProducts([newproduit, ...products])
+  }
+
+  const updateProduct = (prmod) => {
+    setProducts(
+      products.map((product) =>
+        product._id === prmod._id ? prmod : product
+      )
+    );
+  };
+
+
   const deleteProduct = (productId, ref) => {
     confirmAlert({
       title: "Confirm delete...",
