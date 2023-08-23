@@ -57,7 +57,7 @@ const ArticlesApp = () => {
   return (
     <>
       <CreateArticle scategories={scategories} addProduct={addproduct} />
-      <ArticleList products={products} deleteProduct={deleteProduct} />
+      <ArticleList products={products} deleteProduct={deleteProduct} scategories={scategories} />
     </>
   )
 }

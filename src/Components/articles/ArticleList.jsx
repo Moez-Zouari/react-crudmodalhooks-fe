@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import Button from 'react-bootstrap/Button';
 import EditArticle from './EditArticle';
 
-const ArticleList = ({ products, deleteProduct, scategories }) => {
+const ArticleList = ({ products, deleteProduct, scategories, updateProduct }) => {
     const confirmMessage = (id, ref) => {
         deleteProduct(id, ref)
     }
@@ -63,18 +63,9 @@ const ArticleList = ({ products, deleteProduct, scategories }) => {
                 size: 100,
                 Cell: ({ cell, row }) => (
                     <div >
-                        {/* <EditArticle art={cell.row.original} scategories={scategories}
-                            updateProduct={updateProduct} /> */}
-                        <Button
-                            onClick={() => {
-                                console.log("modification ...")
-                            }}
-                            variant="warning"
-                            size="md"
-                            className="text-warning btn-link edit"
-                        >
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </Button>
+                        <EditArticle art={cell.row.original} scategories={scategories}
+                            updateProduct={updateProduct} />
+
                         <Button
                             onClick={(e) => {
                                 confirmMessage(cell.row.original._id, cell.row.original.reference, e);
