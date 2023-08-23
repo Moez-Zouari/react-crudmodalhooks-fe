@@ -2,8 +2,9 @@ import React, { useMemo } from 'react';
 import { MaterialReactTable } from 'material-react-table';
 import { Box } from '@mui/material';
 import Button from 'react-bootstrap/Button';
+import EditArticle from './EditArticle';
 
-const ArticleList = ({ products, deleteProduct }) => {
+const ArticleList = ({ products, deleteProduct, scategories }) => {
     const confirmMessage = (id, ref) => {
         deleteProduct(id, ref)
     }
@@ -62,6 +63,8 @@ const ArticleList = ({ products, deleteProduct }) => {
                 size: 100,
                 Cell: ({ cell, row }) => (
                     <div >
+                        {/* <EditArticle art={cell.row.original} scategories={scategories}
+                            updateProduct={updateProduct} /> */}
                         <Button
                             onClick={() => {
                                 console.log("modification ...")
